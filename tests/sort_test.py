@@ -19,3 +19,4 @@ def test_sort(tmpfiles):
     assert main([tmpfiles.join('correct_1.py').strpath]) == 0
     assert main([tmpfiles.join('incorrect_1.py').strpath]) == 1
     assert main([tmpfiles.join('incorrect_2.py').strpath, '--silent-overwrite']) == 0
+    assert main([tmpfiles.join('incorrect_2.py').strpath, '--force_single_line']) == 0

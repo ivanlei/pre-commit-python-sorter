@@ -25,6 +25,8 @@ Available flags:
 * ``--silent-overwrite``: The hook won't fail if it has to change files. It will
     just do it.
 
+* ``--force_single_line``: Force each import onto a single line.
+
 The hook supports [isort's configuration files](https://github.com/timothycrosley/isort#configuring-isort) - Please refer to the isort documentation for reference
 
 Development: ``pip install -r requirements-dev.txt``

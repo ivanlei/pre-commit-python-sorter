@@ -12,7 +12,8 @@ def main(argv=None):
     parser = argparse.ArgumentParser()
     parser.add_argument('filenames', nargs='*', help='Filenames to run')
     parser.add_argument('--silent-overwrite', action='store_true', dest='silent')
-    parser.set_defaults(silent=False)
+    parser.add_argument('--force_single_line', action='store_true', dest='force_single_line')
+    parser.set_defaults(silent=False, force_single_line=False)
     args = parser.parse_args(argv)
 
     return_value = 0
@@ -21,10 +22,10 @@ def main(argv=None):
         if imports_incorrect(filename) is True:
             if args.silent is False:
                 return_value =  1
-                isort.SortImports(filename)
+                isort.SortImports(filename, force_single_line=args.force_single_line)
                 print('FIXED: {0}'.format(os.path.abspath(filename)))
             else:
-                isort.SortImports(filename)
+                isort.SortImports(filename, force_single_line=args.force_single_line)
     return return_value
 
 if __name__ == '__main__':
